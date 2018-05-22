@@ -1,31 +1,38 @@
 {
-  "private": true,
+  "name": "todos-client",
+  "version": "1.0.0",
+  "description": "Todos list with up/down vote system",
+  "main": "index.html",
+  "homepage": "https://github.com/akabab/todos-client#readme",
+  "author": "akabab",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akabab/todos-client/issues"
+  },
   "scripts": {
-    "server": "nodemon server --ignore client --ignore sessions",
-    "client": "http-server client",
-    "deploy": "npm run deploy:client && npm run deploy:server",
-    "deploy:client:gh-pages": "gh-pages -d client",
-    "deploy:client": "git subtree push --prefix client heroku-client master",
+    "start": "http-server src",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git push heroku master",
+    "deploy:gh-pages": "gh-pages -d client",
     "deploy:client:-f": "git push heroku-client `git subtree split --prefix client master`:master --force",
-    "deploy:server": "git subtree push --prefix server heroku-server master",
-    "deploy:server:-f": "git push heroku-server `git subtree split --prefix server master`:master --force",
-    "test": "echo 'no tests'",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:js": "standard | snazzy",
-    "lint:css": "stylelint 'client/style/**/*.css'",
-    "lint:html": "htmllint 'client/**/*.html'",
-    "postinstall": "cd server && npm i"
+    "lint:css": "stylelint 'src/style/**/*.css'",
+    "lint:html": "htmllint 'src/**/*.html'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akabab/todos-client.git"
   },
   "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {
     "htmllint-cli": "0.0.6",
-    "http-server": "^0.11.1",
-    "nodemon": "^1.17.2",
     "snazzy": "^7.1.1",
     "standard": "^11.0.1",
     "stylelint": "^9.1.3",
-    "stylelint-config-recommended": "^2.1.0"
-  },
-  "devDependencies": {
+    "stylelint-config-recommended": "^2.1.0",
     "gh-pages": "^1.1.0"
   }
 }
