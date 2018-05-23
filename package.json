@@ -10,7 +10,7 @@
     "url": "https://github.com/akabab/todos-client/issues"
   },
   "scripts": {
-    "start": "http-server src",
+    "start": "serve src",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "git push heroku master",
     "deploy:gh-pages": "gh-pages -d client",
@@ -25,9 +25,9 @@
     "url": "git+https://github.com/akabab/todos-client.git"
   },
   "dependencies": {
-    "http-server": "^0.11.1"
   },
   "devDependencies": {
+    "serve": "^6.5.8",
     "htmllint-cli": "0.0.6",
     "snazzy": "^7.1.1",
     "standard": "^11.0.1",
