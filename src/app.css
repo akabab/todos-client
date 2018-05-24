@@ -23,10 +23,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-.navbar .navbar-brand {
-  font-size: 1.3rem;
-}
-
 .btn.btn-primary {
   background-color: #EC368D;
   border-color: #EC368D;
