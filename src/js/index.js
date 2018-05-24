@@ -41,16 +41,22 @@ const render = todos => {
 }
 
 const form = document.getElementById('form-todos-add')
+const addButton = document.getElementById('button-todos-add')
 
 form.addEventListener('submit', e => {
   e.preventDefault()
   formMessage.textContent = ''
 
+  addButton.classList.add('loading')
+
   const formData = new window.FormData(e.target)
 
   api.post('/todos', formData)
     .then(render)
-    .then(() => { formMessage.textContent = 'all good' })
+    .then(() => {
+      addButton.classList.remove('loading')
+      formMessage.textContent = 'all good'
+    })
     .catch(error => { formMessage.textContent = error.message })
 })
 

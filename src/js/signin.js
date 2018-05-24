@@ -1,6 +1,7 @@
 import api from './api.js'
 import { createLoggedElement, signInUpButtons } from './components/auth.js'
 
+const signInSubmitButton = document.getElementById('button-sign-in')
 const signInModal = document.getElementById('modal-sign-in')
 const signUpModal = document.getElementById('modal-sign-up')
 const addTodoModal = document.getElementById('modal-todos-add')
@@ -62,10 +63,12 @@ const handleResponse = q => Promise.resolve(q)
 signInForm.addEventListener('submit', e => {
   e.preventDefault()
   formMessage.textContent = ''
+  signInSubmitButton.classList.add('loading')
 
   const formData = new window.FormData(e.target)
 
   handleResponse(api.post('/sign-in', formData))
+    .then(() => signInSubmitButton.classList.remove('loading'))
 })
 
 handleResponse(api.get('/whoami'))

@@ -1,5 +1,6 @@
 import api from './api.js'
 
+const signUpSubmitButton = document.getElementById('button-sign-up')
 const signUpModal = document.getElementById('modal-sign-up')
 const signUpForm = document.getElementById('form-sign-up')
 const formMessage = document.getElementById('sign-up-message')
@@ -24,10 +25,15 @@ confirmPasswordElement.addEventListener('input', handlePasswordValidation)
 signUpForm.addEventListener('submit', e => {
   e.preventDefault()
   formMessage.textContent = ''
+  signUpSubmitButton.classList.add('loading')
 
   const formData = new window.FormData(e.target)
 
   api.post('/sign-up', formData)
-    .then(() => setTimeout(() => hideModal(signUpModal), 1000))
-    .catch(error => { formMessage.textContent = error.message || 'all good' })
+    .then(() => {
+      formMessage.textContent = 'all good'
+      setTimeout(() => hideModal(signUpModal), 1000)
+    })
+    .catch(error => { formMessage.textContent = error.message })
+    .then(() => signUpSubmitButton.classList.remove('loading'))
 })
