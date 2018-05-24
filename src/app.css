@@ -1,5 +1,5 @@
 /*
-Colors
+colors
 https://coolors.co/51e5ff-440381-ec368d-ffa5a5-ffd6c0
 
 #51e5ff - blue
@@ -11,11 +11,11 @@ https://coolors.co/51e5ff-440381-ec368d-ffa5a5-ffd6c0
 */
 
 html, body {
-  background-color: #51E5FF;
+  background-color: #51e5ff;
 }
 
 body {
-  color: #FFA5A5;
+  color: #ffa5a5;
   font-family: monospace;
 }
 
@@ -24,8 +24,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn.btn-primary {
-  background-color: #EC368D;
-  border-color: #EC368D;
+  background-color: #ec368d;
+  border-color: #ec368d;
 }
 
 .btn.btn-link {
@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gray {
-  color: #FFD6C0;
+  color: #ffd6c0;
 }
 
 .text-sm {
@@ -57,7 +57,12 @@ a.active, a:active, a:focus, a:hover {
   color: #ffa5a5;
 }
 
-.btn.btn-primary:focus, .btn.btn-primary:hover {
+.btn.btn-primary:focus {
+  background: #ec368d;
+  border-color: #ffa5a5;
+}
+
+.btn.btn-primary:hover {
   background: #ffa5a5;
   border-color: #ffa5a5;
 }
